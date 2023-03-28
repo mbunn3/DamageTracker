@@ -152,17 +152,24 @@ Ammo Type: """).lower()
 
 def setBody():
     global btm
-    temp=input("Set body: ")
-    if(temp==""):
-        temp=6
-        print("defaulted to body: 6, btm: 2")
-    temp=int(temp)
-    if(temp>10):
-        btm=5
-    elif(temp<6):
-        btm=ceil(temp/2-1)
-    else:
-        btm=floor(temp/2-1)
+    while(1):
+        temp=input("Set body: ")
+        if(temp==""):
+            temp=6
+            print("defaulted to body: 6, btm: 2")
+            break
+        try:
+            temp=int(temp)
+            if(temp>10):
+              btm=5
+            elif(temp<6):
+                btm=ceil(temp/2-1)
+            else:
+                btm=floor(temp/2-1)
+            break
+        except:
+            print("Invalid input")
+        
 
 def printSP():
     print(f"(SP) - [{sp[0]}] [{sp[1]}] [{sp[2]}|{sp[3]}] [{sp[4]}|{sp[5]}]  (BTM): {btm}")
